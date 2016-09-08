@@ -1,6 +1,8 @@
 package by.gsu.petclinick;
 
-public abstract class Animal {
+import java.io.Serializable;
+
+public abstract class Animal implements Serializable {
     private String name;
 
     public Animal() {

@@ -2,7 +2,7 @@ package by.gsu.petclinick;
 
 import java.util.Scanner;
 
-public class AnimalFactory {
+public class AnimalService {
     public Animal createNewAnimal() {
         Scanner s = new Scanner(System.in);
         System.out.println("cat or dog?");

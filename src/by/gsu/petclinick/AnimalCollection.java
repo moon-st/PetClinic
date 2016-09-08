@@ -6,9 +6,16 @@ public class AnimalCollection {
 
     private Animal[] animals;
     private int count;
+    private AnimalService service;
 
     public AnimalCollection(int size) {
         animals = new Animal[size];
+        service = new AnimalService();
+    }
+
+    public void add() {
+        Animal animal = service.createNewAnimal();
+        add(animal);
     }
 
     public void add(Animal animal) {
@@ -21,7 +28,13 @@ public class AnimalCollection {
     }
 
     public void update(int index) {
-        throw new UnsupportedOperationException();
+        Animal animal = animals[index];
+        if (animal == null) {
+            throw new
+                    IllegalArgumentException("there is no such animal!");
+        }
+        service.update(animal);
+
     }
 
     public void delete(int index) {
@@ -40,7 +53,6 @@ public class AnimalCollection {
     }
 
     public void printAll() {
-        System.out.println("count = " + count + ", length = " + animals.length);
         System.out.println(Arrays.toString(animals));
     }
 }
